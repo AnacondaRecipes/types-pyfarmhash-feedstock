@@ -26,9 +26,9 @@ test:
   requires:
     - pip
   commands:
-    - test -f $SP_DIR/farmhash-stubs/__init__.pyi
+    - test -f $SP_DIR/farmhash-stubs/__init__.pyi  # [not win]
+    - if not exist %SP_DIR%\\farmhash-stubs\\__init__.pyi exit 1  # [win]
     - pip check
-
 
 about:
   home: https://github.com/python/typeshed
