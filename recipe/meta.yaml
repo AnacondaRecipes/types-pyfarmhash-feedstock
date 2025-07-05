@@ -1,17 +1,18 @@
 {% set name = "types-pyfarmhash" %}
-{% set version = "0.3.1.2" %}
+{% set version = "0.4.0.20240902" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/types-pyfarmhash-{{ version }}.tar.gz
-  sha256: beca9c1d1bd2f0c22991337c94f0b624cd3375349dd3e64db8d50aa54adb22ea
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/types-pyfarmhash-{{ version }}.tar.gz
+  sha256: 6844405542f50048b0fa97fd2357fc6524532fc83de21d5696500c73c0189420
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -v --no-deps --no-build-isolation
+  skip: true  # [py<38]
 
 requirements:
   host:
